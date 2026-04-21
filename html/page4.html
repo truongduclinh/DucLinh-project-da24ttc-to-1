@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hóa Đơn</title>
+    <link rel="stylesheet" href="../css/style4.css">
+</head>
+<body>
+
+<div class="invoice-container">
+    <h1>BẢNG HÓA ĐƠN</h1>
+    
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Số Lượng</th>
+                <th>Đơn Giá (VNĐ)</th>
+                <th>Thành Tiền (VNĐ)</th>
+            </tr>
+        </thead>
+       <tbody>
+
+    <tr>
+        <td>1</td>
+        <td>A</td>
+        <td><input type="text" class="qty"></td>
+        <td><input type="text" class="qty"></td>
+        <td class="tt">0</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>B</td>
+        <td><input type="text" class="qty"></td>
+        <td><input type="text" class="qty"></td>
+        <td class="tt">0</td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>C</td>
+        <td><input type="text" class="qty"></td>
+        <td><input type="text" class="qty"></td>
+        <td class="tt">0</td>
+    </tr>
+
+    <tr>
+        <td colspan="4">TỔNG THÀNH TIỀN</td>
+        <td id="tong">0</td>
+    </tr>
+</table>
+
+<script>
+function tinh() {
+    let tong = 0;
+
+    let dsDong = document.querySelectorAll("tr");
+
+    dsDong.forEach(dong => {
+        let sl = dong.querySelector(".sl");
+        let dg = dong.querySelector(".dg");
+        let tt = dong.querySelector(".tt");
+
+        if (sl && dg && tt) {
+            let soLuong = sl.value || 0;
+            let donGia = dg.value || 0;
+
+            let thanhTien = soLuong * donGia;
+
+            tt.innerText = thanhTien;
+            tong += thanhTien;
+        }
+    });
+
+    document.getElementById("tong").innerText = tong;
+}
+
+document.querySelectorAll("input").forEach(o => {
+    o.addEventListener("input", tinh);
+});
+</script>
+
+</body>
+</html>

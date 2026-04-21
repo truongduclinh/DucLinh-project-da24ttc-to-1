@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng Cửu Chương</title>
+    <link rel="stylesheet" href="../css/style5.css">
+    
+</head>
+<body>
+
+<div class="container">
+    <h1>BẢNG CỬU CHƯƠNG</h1>
+
+Nhập số:
+<input type="number" id="so" value="2">
+
+<button onclick="inBang()">In Bảng</button>
+
+<div id="ketqua"></div>
+
+<script>
+function inBang() {
+    let so = document.getElementById("so").value;
+    let html = "<table border='1' cellpadding='10'>";
+
+    for (let i = 1; i <= 10; i++) {
+        html += "<tr><td>" + so + " × " + i + "</td><td>" + (so * i) + "</td></tr>";
+    }
+
+    html += "</table>";
+
+    document.getElementById("ketqua").innerHTML = html;
+}
+</script>
+
+</body>
+</html>
