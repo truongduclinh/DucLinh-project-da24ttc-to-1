@@ -1,8 +1,8 @@
 const products = [
-    {id:"01", name:"Bóng đá loại A", price:290, image:"../assets/images/bongloaia.jpg", productLink:"product-detail.html"},
-    {id:"02", name:"Bóng đá loại B", price:350, image:"../assets/images/bongloaib.jpg", productLink:"product-detail.html"},
-    {id:"03", name:"Bóng chuyền loại A", price:320, image:"../assets/images/bongchuyenA.jpg", productLink:"product-detail.html"},
-    {id:"04", name:"Bóng chuyền loại B", price:380, image:"../assets/images/bongchuyenB.jpg", productLink:"product-detail.html"}
+    {id:"01", name:"Bóng đá loại A", price:290, image:"../assets/images/bongloaia.JPG", productLink:"product-detail.html"},
+    {id:"02", name:"Bóng đá loại B", price:350, image:"../assets/images/bongloaib.JPG", productLink:"product-detail.html"},
+    {id:"03", name:"Bóng chuyền loại A", price:320, image:"../assets/images/bongchuyenA.JPG", productLink:"product-detail.html"},
+    {id:"04", name:"Bóng chuyền loại B", price:380, image:"../assets/images/bongchuyenB.JPG", productLink:"product-detail.html"}
 ];
 
 function addProduct(id, name, price, image, hyperLink)
