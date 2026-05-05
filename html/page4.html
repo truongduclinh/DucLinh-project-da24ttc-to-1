@@ -21,65 +21,59 @@
             </tr>
         </thead>
        <tbody>
+<tr>
+    <td>1</td>
+    <td>A</td>
+    <td><input type="number" class="soluong" oninput="tinhTien()"></td>
+    <td><input type="number" class="dongia" oninput="tinhTien()"></td>
+    <td class="thanhtien">0</td>
+</tr>
 
-    <tr>
-        <td>1</td>
-        <td>A</td>
-        <td><input type="text" class="qty"></td>
-        <td><input type="text" class="qty"></td>
-        <td class="tt">0</td>
-    </tr>
+<tr>
+    <td>2</td>
+    <td>B</td>
+    <td><input type="number" class="soluong" oninput="tinhTien()"></td>
+    <td><input type="number" class="dongia" oninput="tinhTien()"></td>
+    <td class="thanhtien">0</td>
+</tr>
 
-    <tr>
-        <td>2</td>
-        <td>B</td>
-        <td><input type="text" class="qty"></td>
-        <td><input type="text" class="qty"></td>
-        <td class="tt">0</td>
-    </tr>
+<tr>
+    <td>3</td>
+    <td>C</td>
+    <td><input type="number" class="soluong" oninput="tinhTien()"></td>
+    <td><input type="number" class="dongia" oninput="tinhTien()"></td>
+    <td class="thanhtien">0</td>
+</tr>
 
-    <tr>
-        <td>3</td>
-        <td>C</td>
-        <td><input type="text" class="qty"></td>
-        <td><input type="text" class="qty"></td>
-        <td class="tt">0</td>
-    </tr>
-
-    <tr>
-        <td colspan="4">TỔNG THÀNH TIỀN</td>
-        <td id="tong">0</td>
-    </tr>
+<tr>
+    <td colspan="4">TỔNG THÀNH TIỀN</td>
+    <td id="tong">0</td>
+</tr>
+</tbody>
 </table>
 
 <script>
-function tinh() {
+function tinhTien() {
+    let rows = document.querySelectorAll("tbody tr");
     let tong = 0;
 
-    let dsDong = document.querySelectorAll("tr");
+    rows.forEach(row => {
+        let soLuong = row.querySelector(".soluong");
+        let donGia = row.querySelector(".dongia");
+        let thanhTienCell = row.querySelector(".thanhtien");
 
-    dsDong.forEach(dong => {
-        let sl = dong.querySelector(".sl");
-        let dg = dong.querySelector(".dg");
-        let tt = dong.querySelector(".tt");
+        if (soLuong && donGia && thanhTienCell) {
+            let sl = parseFloat(soLuong.value) || 0;
+            let dg = parseFloat(donGia.value) || 0;
+            let tt = sl * dg;
 
-        if (sl && dg && tt) {
-            let soLuong = sl.value || 0;
-            let donGia = dg.value || 0;
-
-            let thanhTien = soLuong * donGia;
-
-            tt.innerText = thanhTien;
-            tong += thanhTien;
+            thanhTienCell.innerText = tt;
+            tong += tt;
         }
     });
 
     document.getElementById("tong").innerText = tong;
 }
-
-document.querySelectorAll("input").forEach(o => {
-    o.addEventListener("input", tinh);
-});
 </script>
 
 </body>
